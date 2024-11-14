@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaborate with me</title>
+    <link rel="stylesheet" href="mystyle.css">
+</head>
+<body>
+    <h1>Collaborate With Me</h1>
+    <h3>Want to do a project together.</h3>
+    <h3>Want to hire me for your project.</h3>
+    <h3>Want to hire me in your business.</h3>
+    <h3>Want me to offer a job position.</h3>
+    <p>Feel free to email me i reply within 24 hours according to my schedule.</p>
+    <a href="mailto:balikummarwad@gmail.com" id="email-icon" >📧</a><button onclick="copyEmail()" id="copy-btn">Copy Email</button>
+
+    <script>
+        function copyEmail() {
+            // Get the email address from the href attribute of the anchor tag
+            const emailLink = document.getElementById("email-icon").href;
+            // Extract the email part from the 'mailto:' string
+            const email = emailLink.substring(7); // Remove 'mailto:'
+            
+            // Copy the email to the clipboard
+            navigator.clipboard.writeText(email)
+                .then(() => {
+                    const button = document.getElementById("copy-btn");
+                    button.textContent = "Copied!";
+                    // Revert the button text after 2 seconds
+                    setTimeout(() => {
+                        button.textContent = "Copy Email";
+                    }, 2000);
+                })
+                .catch(err => {
+                    console.error("Failed to copy: ", err);
+                });
+        }
+    </script>
+</body>
+</html>
